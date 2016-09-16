@@ -1,9 +1,6 @@
 # frozen_string_literal: true
-# A sample Gemfile
 source "https://rubygems.org"
+gem "grape"
+gem "httparty"
 
 # gem "rails"
-gem 'grape'
-
-gem 'httparty'
-
