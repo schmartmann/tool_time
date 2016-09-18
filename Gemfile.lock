@@ -44,6 +44,8 @@ GEM
       rack (>= 0.4)
     redis-sinatra (0.0.0)
     thread_safe (0.3.5)
+    time_difference (0.4.2)
+      activesupport
     tzinfo (1.2.2)
       thread_safe (~> 0.1)
     virtus (1.0.5)
@@ -60,8 +62,12 @@ PLATFORMS
 DEPENDENCIES
   grape
   httparty
+<<<<<<< HEAD
   redis-sinatra
   whenever
+=======
+  time_difference
+>>>>>>> cfea6aa27b5706da46592958483b9f051458756e
 
 BUNDLED WITH
    1.13.1
