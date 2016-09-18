@@ -2,23 +2,74 @@ require "sinatra/base"
 require "sinatra/reloader"
 require "redis-sinatra"
 require "whenever"
+require "grape"
+require 'httparty'
+require "byebug"
+
+
 require_relative "server"
 run Sinatra::Server
 
-	@response = HTTParty.get('http://itunes.com/api/')
-	puts response.body, response.code,
-	response.message,
-	response.headers.inspect
-class TunesApi 
-	def index
-			@response 
-			 redirect_to "/tool"
+configure do
+  REDISTOGO_URL = "redis://localhost:6379/"
+  uri = URI.parse(REDISTOGO_URL)
+  REDIS = Redis.new(:host => uri.host, :port => uri.port, :password => uri.password)
+  byebug
+  Thread.new {
+  # Thread #2 runs this code
+  every 1.minute do # 1.minute 1.day 1.week 1.month 1.year is also supported
+    puts ('get NEW TOOL ALBUM STATUS')
+    # runner "MyModel.some_process"
+    # rake "my:rake:task"
+    # command "/usr/bin/my_great_command"
+  end
+  }
 
-		end
+  
 
-		def show
-			@response = Train.find_by(id: params[:id])
-			redirect_to "/trains/<%=@train%>"
-		end
-	
 end
+
+
+
+class API < Grape::API
+  format :json
+  get :album_status do
+    response = HTTParty.get("https://en.wikipedia.org/w/api.php?format=json&action=query&prop=extracts&exlimit=max&explaintext&exintro&titles=tool%20discography")
+    @discography = response["query"]["pages"]["7014851"]["extract"]
+    if @discography.include?("five studio albums" || "fifth album" || "5th album")
+      { new_album: 'yes'}
+    else
+      { new_album: 'no' }
+    end
+  end
+end
+
+class Server < Sinatra::Base
+  get "/" do
+    erb :index
+
+  end
+
+  get '/testPost' do
+    REDIS.set("isAlbumNew", "No")
+  end
+
+  get '/testGet' do
+    puts 'OUR THREADS!'
+    Thread.list.select {|thread| thread.status == "run"}.count
+    REDIS.get("isAlbumNew")
+  end
+
+end
+
+class Tool_time < Sinatra::Base
+  register Sinatra::Cache
+  get '/' do
+    settings.cache.fetch('greet') { 'Hello, World!' }
+  end
+end
+
+
+
+use Rack::Session::Cookie
+run Rack::Cascade.new [API, Server]
