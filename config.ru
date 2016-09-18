@@ -1,10 +1,33 @@
 require "sinatra/base"
 require "sinatra/reloader"
+require "redis-sinatra"
+require "whenever"
 require "grape"
 require 'httparty'
+require "byebug"
 require 'time_difference'
 require_relative "server"
 run Sinatra::Server
+
+configure do
+  REDISTOGO_URL = "redis://localhost:6379/"
+  uri = URI.parse(REDISTOGO_URL)
+  REDIS = Redis.new(:host => uri.host, :port => uri.port, :password => uri.password)
+  byebug
+  Thread.new {
+  # Thread #2 runs this code
+  every 1.minute do # 1.minute 1.day 1.week 1.month 1.year is also supported
+    puts ('get NEW TOOL ALBUM STATUS')
+    # runner "MyModel.some_process"
+    # rake "my:rake:task"
+    # command "/usr/bin/my_great_command"
+  end
+  }
+
+  
+
+end
+
 
 
 class API < Grape::API
@@ -28,6 +51,25 @@ class Server < Sinatra::Base
 
   get "/" do
     erb :index
+
+  end
+
+  get '/testPost' do
+    REDIS.set("isAlbumNew", "No")
+  end
+
+  get '/testGet' do
+    puts 'OUR THREADS!'
+    Thread.list.select {|thread| thread.status == "run"}.count
+    REDIS.get("isAlbumNew")
+  end
+
+end
+
+class Tool_time < Sinatra::Base
+  register Sinatra::Cache
+  get '/' do
+    settings.cache.fetch('greet') { 'Hello, World!' }
   end
 end
 
