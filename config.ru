@@ -1,5 +1,7 @@
 require "sinatra/base"
 require "sinatra/reloader"
+require "redis-sinatra"
+require "whenever"
 require_relative "server"
 run Sinatra::Server
 
