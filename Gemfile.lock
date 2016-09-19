@@ -166,6 +166,11 @@ DEPENDENCIES
   grape
   httparty
 <<<<<<< HEAD
+  redis-sinatra
+  time_difference
+  whenever
+=======
+<<<<<<< HEAD
   social-buttons (~> 0.3)
 =======
   redis-sinatra
@@ -173,6 +178,7 @@ DEPENDENCIES
   time_difference
   twilio-ruby
 >>>>>>> 76fc72ad9b39c5c6a120213ff24a3f5bd1bf8c11
+>>>>>>> c6878b989f4298d2987d89b123304bf87a906571
 
 BUNDLED WITH
    1.13.1
