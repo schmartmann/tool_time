@@ -2,11 +2,29 @@
 	background-color: #3E4651;
 }
 
+
+
+.navbar-brand {
+    float: left;
+    left: 2%;
+    height: 50px;
+    padding: 15px 15px;
+    font-size: 23px;
+    line-height: 27px;
+    position: absolute;
+}
+
+
 html ,body {
 	background-color: #D6D6D6;
 }
 
 
+
+
+
+
+/* responsive*/
 @media only screen and (max-width: 780px) {
 	img {
 		vertical-align: middle;
@@ -24,7 +42,7 @@ html ,body {
 }
 
 
-@media only screen and (min-width: 1100px) {
+@media only screen and (min-width: 1010px) {
 	img {
 		vertical-align: middle;
     	width: 70%;
