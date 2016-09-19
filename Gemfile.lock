@@ -62,12 +62,9 @@ PLATFORMS
 DEPENDENCIES
   grape
   httparty
-<<<<<<< HEAD
   redis-sinatra
-  whenever
-=======
   time_difference
->>>>>>> cfea6aa27b5706da46592958483b9f051458756e
+  whenever
 
 BUNDLED WITH
    1.13.1

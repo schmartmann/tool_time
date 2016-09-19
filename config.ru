@@ -13,7 +13,7 @@ configure do
   REDISTOGO_URL = "redis://localhost:6379/"
   uri = URI.parse(REDISTOGO_URL)
   REDIS = Redis.new(:host => uri.host, :port => uri.port, :password => uri.password)
-  byebug
+  
   Thread.new {
   # Thread #2 runs this code
   every 1.minute do # 1.minute 1.day 1.week 1.month 1.year is also supported
