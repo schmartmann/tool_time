@@ -30,8 +30,6 @@ configure do
 end
 
 
->>>>>>> 85d5354133c10a817082da1a66fa97048d5e6b72
-
 class API < Grape::API
   format :json
 
