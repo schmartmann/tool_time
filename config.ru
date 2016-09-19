@@ -10,24 +10,21 @@ require 'twilio-ruby'
 require_relative "server"
 
 run Sinatra::Server
-configure do
-  REDISTOGO_URL = "redis://localhost:6379/"
-  uri = URI.parse(REDISTOGO_URL)
-  REDIS = Redis.new(:host => uri.host, :port => uri.port, :password => uri.password)
-  
-  Thread.new {
-  # Thread #2 runs this code
-  every 1.minute do # 1.minute 1.day 1.week 1.month 1.year is also supported
-    puts ('get NEW TOOL ALBUM STATUS')
-    # runner "MyModel.some_process"
-    # rake "my:rake:task"
-    # command "/usr/bin/my_great_command"
-  end
-  }
-
-
-
-end
+# configure do
+#   REDISTOGO_URL = "redis://localhost:6379/"
+#   uri = URI.parse(REDISTOGO_URL)
+#   REDIS = Redis.new(:host => uri.host, :port => uri.port, :password => uri.password)
+#
+#   Thread.new {
+#   # Thread #2 runs this code
+#   every 1.minute do # 1.minute 1.day 1.week 1.month 1.year is also supported
+#     puts ('get NEW TOOL ALBUM STATUS')
+#     # runner "MyModel.some_process"
+#     # rake "my:rake:task"
+#     # command "/usr/bin/my_great_command"
+#   end
+#   }
+# end
 
 
 class API < Grape::API
@@ -43,8 +40,8 @@ class API < Grape::API
 
   get :album_status do
     get_album_status
-    # if @discography.include?("five studio albums" || "fifth album" || "5th album")
-    if @discography.include?("four studio albums")
+    if @discography.include?("five studio albums" || "fifth album" || "5th album")
+    # if @discography.include?("four studio albums")
       { new_album: 'yes'}
     else
       start_time = Time.new(2006, 4, 28)
@@ -56,29 +53,29 @@ class API < Grape::API
   end
 end
 
+# class Server < Sinatra::Base
+#
+#   get "/" do
+#     erb :index
+#   end
+#
+#   get '/testPost' do
+#     REDIS.set("isAlbumNew", "No")
+#   end
+#
+#   get '/testGet' do
+#     puts 'OUR THREADS!'
+#     Thread.list.select {|thread| thread.status == "run"}.count
+#     REDIS.get("isAlbumNew")
+#   end
+# end
+
+# class Tool_time < Sinatra::Base
 class Server < Sinatra::Base
-
-  get "/" do
-    erb :index
-
-  end
-
-  get '/testPost' do
-    REDIS.set("isAlbumNew", "No")
-  end
-
-  get '/testGet' do
-    puts 'OUR THREADS!'
-    Thread.list.select {|thread| thread.status == "run"}.count
-    REDIS.get("isAlbumNew")
-  end
-
-end
-
-class Tool_time < Sinatra::Base
-  register Sinatra::Cache
+  # register Sinatra::Cache
   get '/' do
-    settings.cache.fetch('greet') { 'Hello, World!' }
+    # settings.cache.fetch('greet') { 'Hello, World!' }
+    erb :index
   end
 
   post "/" do
