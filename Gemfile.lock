@@ -70,7 +70,6 @@ GEM
       multi_xml (>= 0.5.2)
     i18n (0.7.0)
     ice_nine (0.11.2)
-<<<<<<< HEAD
     loofah (2.0.3)
       nokogiri (>= 1.5.9)
     mail (2.6.4)
@@ -80,9 +79,7 @@ GEM
       mime-types-data (~> 3.2015)
     mime-types-data (3.2016.0521)
     mini_portile2 (2.1.0)
-=======
     jwt (1.5.4)
->>>>>>> 76fc72ad9b39c5c6a120213ff24a3f5bd1bf8c11
     minitest (5.9.0)
     multi_json (1.12.1)
     multi_xml (0.5.5)
@@ -96,7 +93,6 @@ GEM
     rack (2.0.1)
     rack-accept (0.4.5)
       rack (>= 0.4)
-<<<<<<< HEAD
     rack-test (0.6.3)
       rack (>= 1.0)
     rails (5.0.0.1)
@@ -133,9 +129,7 @@ GEM
       activesupport (>= 4.0)
       sprockets (>= 3.0.0)
     thor (0.19.1)
-=======
     redis-sinatra (0.0.0)
->>>>>>> 76fc72ad9b39c5c6a120213ff24a3f5bd1bf8c11
     thread_safe (0.3.5)
     time_difference (0.4.2)
       activesupport
@@ -150,14 +144,11 @@ GEM
       coercible (~> 1.0)
       descendants_tracker (~> 0.0, >= 0.0.3)
       equalizer (~> 0.0, >= 0.0.9)
-<<<<<<< HEAD
     websocket-driver (0.6.4)
       websocket-extensions (>= 0.1.0)
     websocket-extensions (0.1.2)
-=======
     whenever (0.9.7)
       chronic (>= 0.6.3)
->>>>>>> 76fc72ad9b39c5c6a120213ff24a3f5bd1bf8c11
 
 PLATFORMS
   ruby
@@ -165,20 +156,14 @@ PLATFORMS
 DEPENDENCIES
   grape
   httparty
-<<<<<<< HEAD
   redis-sinatra
   time_difference
   whenever
-=======
-<<<<<<< HEAD
   social-buttons (~> 0.3)
-=======
   redis-sinatra
   whenever
   time_difference
   twilio-ruby
->>>>>>> 76fc72ad9b39c5c6a120213ff24a3f5bd1bf8c11
->>>>>>> c6878b989f4298d2987d89b123304bf87a906571
 
 BUNDLED WITH
    1.13.1
