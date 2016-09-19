@@ -16,10 +16,10 @@ require "grape"
   end
 
   class Tool_time < Sinatra::Base
-    register Sinatra::Cache
+    # register Sinatra::Cache
 
     get '/hi' do
-      settings.cache.fetch('greet') { 'Hello, World!' }
+      # settings.cache.fetch('greet') { 'Hello, World!' }
     end
   end
 
