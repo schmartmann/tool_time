@@ -14,4 +14,13 @@ require "grape"
       erb :index
     end
   end
+
+  class Tool_time < Sinatra::Base
+    register Sinatra::Cache
+
+    get '/hi' do
+      settings.cache.fetch('greet') { 'Hello, World!' }
+    end
+  end
+
 end
