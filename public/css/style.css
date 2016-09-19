@@ -1,0 +1,58 @@
+#nav  {
+	background-color: #3E4651;
+	padding-left: 100px; 
+}
+
+
+
+.navbar-brand {
+    float: left;
+    left: 2%;
+    height: 50px;
+    padding: 20px 20px;
+    font-size: 23px;
+    line-height: 27px;
+    position: absolute;
+}
+
+
+html ,body {
+	background-color: #D6D6D6;
+}
+
+
+
+
+
+/* responsive*/
+@media only screen and (max-width: 780px) {
+	img {
+		vertical-align: middle;
+    	width: 100%;
+	}
+
+}
+
+@media only screen and (max-width: 1000px) {
+	img {
+		vertical-align: middle;
+    	width: 80%;
+	}
+
+}
+
+
+@media only screen and (min-width: 1010px) {
+	img {
+		vertical-align: middle;
+    	width: 70%;
+	}
+
+}
+
+
+#album-counter li {
+	list-style: none;
+	display: inline-flex;
+	padding: 5px;
+}
