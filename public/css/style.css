@@ -1,6 +1,5 @@
 #nav  {
 	background-color: #3E4651;
-	padding-left: 100px; 
 }
 
 
@@ -9,7 +8,7 @@
     float: left;
     left: 2%;
     height: 50px;
-    padding: 20px 20px;
+    padding: 15px 15px;
     font-size: 23px;
     line-height: 27px;
     position: absolute;
@@ -20,7 +19,15 @@ html ,body {
 	background-color: #D6D6D6;
 }
 
+.list-unstyled {
+    padding-left: 0;
+    list-style: none;
+    display: inline-flex;
+}
 
+.album{
+	
+}
 
 
 
@@ -30,7 +37,7 @@ html ,body {
 		vertical-align: middle;
     	width: 100%;
 	}
-
+	
 }
 
 @media only screen and (max-width: 1000px) {
@@ -38,7 +45,7 @@ html ,body {
 		vertical-align: middle;
     	width: 80%;
 	}
-
+	
 }
 
 
@@ -47,9 +54,8 @@ html ,body {
 		vertical-align: middle;
     	width: 70%;
 	}
-
+	
 }
-
 
 #album-counter li {
 	list-style: none;
