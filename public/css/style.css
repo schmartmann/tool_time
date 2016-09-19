@@ -56,3 +56,9 @@ html ,body {
 	}
 	
 }
+
+#album-counter li {
+	list-style: none;
+	display: inline-flex;
+	padding: 5px;
+}
